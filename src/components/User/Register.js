@@ -30,7 +30,8 @@ const Register = () => {
     }
   return (
     <div>
-      <h1 className='text-3xl font-bold text-center'>Register Here</h1>
+  
+      <h1 className='text-3xl font-bold text-center'>Register Here For Loan</h1>
       <form className='flex flex-col w-3/6 m-auto gap-5 mt-3' onSubmit={handleSubmit}>
 
       <input type="text" required onChange={handledatachange} className='border px-2 rounded placeholder:text-gray-500 placeholder: text-base' name='name' placeholder='Enter Name' />
