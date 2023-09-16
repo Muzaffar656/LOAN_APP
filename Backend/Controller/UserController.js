@@ -4,9 +4,6 @@ const bcrypt = require('bcrypt')
 const JWT_KEY = process.env.JWT_KEY 
 const ErrorHandler = require('../utils/ErrorHandler')
 const Register = async(req,res,next)=>{
-
-    
-
    try {
     const {name,email,password} = req.body;
     if(!name || !email || !password){
@@ -23,6 +20,7 @@ const Register = async(req,res,next)=>{
         email,
        password: hashedPassword
     })
+    // console.log(user)
     const JWT = jwt.sign({user:{
         id:user._id,
         name:user.name,

@@ -18,15 +18,21 @@ const ApplyLoan = (props) => {
       }
       const handleCreateLoan = async (e) => {
         e.preventDefault()
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": localStorage.getItem('token')
+          },
+        }
         try {
           const response = await axios.post('http://localhost:7000/api/createloan', 
-        value);
+        value,config);
           console.log(response.data.message);
           enqueueSnackbar(response.data.message)
           setLoanId(response.data.loan._id);
           props.id(response.data.loan._id)
         } catch (error) {
-            console.error(error);
+          enqueueSnackbar(error.response.data.message)
         }
 
         

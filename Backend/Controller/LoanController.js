@@ -1,7 +1,5 @@
 const Loan = require('../Model/LoanModel')
 
-// API Endpoints
-
 // 1) Customers can create a loan
 const CustomerCreateLoan =  async (req, res) => {
   try {
@@ -57,8 +55,8 @@ const AdminApproveLoan =  async (req, res) => {
 // 3) Customers can view loan belonging to him
 const BelongLoan = async(req,res)=>{
   try {
-    const customerId = req.params.customerId;
-    const loans = await Loan.find({ customerId });
+    // const customerId = req.params.customerId;
+    const loans = await Loan.find({ user_id:req.user_id });
     res.json({ success: true, loans });
   } catch (error) {
     console.error(error);
