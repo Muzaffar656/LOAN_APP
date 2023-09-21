@@ -5,7 +5,7 @@ const router = express.Router()
 router.use(tokenhandler)
 router.post('/createloan',CustomerCreateLoan)
 router.put('/repayloan',AdminApproveLoan)
-router.get('/belongloan',BelongLoan),
+router.get('/belongloan:id',BelongLoan),
 router.post('/repayment',CustomerRepayment)
 
 
